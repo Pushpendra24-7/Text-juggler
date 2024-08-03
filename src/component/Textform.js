@@ -7,7 +7,7 @@ export default function Textform(props) {
         
         let newText = text.toUpperCase();
         setText(newText);
-        props.showAlert("Converted to Uppercase" , "success")
+        
 
 
     }
@@ -15,7 +15,7 @@ export default function Textform(props) {
         
         let newText = text.toLowerCase();
         setText(newText);
-        props.showAlert("Converted to Lowercase" , "success")
+       
 
 
 
@@ -41,15 +41,15 @@ export default function Textform(props) {
   <textarea className="form-control" style={{backgroundColor: props.mode==='dark' ? '#00003f':'#2db9b74a' , color: props.mode==='dark' ? 'white':'black' }}  value={text} onChange={handleOnChange} placeholder='Enter Anything...' id="Text area" rows="8"></textarea>
 
 </div>
-<button type="button" onClick={handleUpClick} className="btn btn-outline-info">UPPER_CASE</button>
-<button type="button" onClick={handleLoClick} className="btn btn-outline-info mx-4">lower_case</button>
-<button type="button" onClick={handleClearClick} className="btn btn-outline-info">Clear All</button>
+<button disabled={text.length===0} type="button" onClick={handleLoClick} className="btn btn-outline-info mx-2 my-1">lower_case</button>
+<button disabled={text.length===0} type="button" onClick={handleUpClick} className="btn btn-outline-info my-1">UPPER_CASE</button>
+<button disabled={text.length===0} type="button" onClick={handleClearClick} className="btn btn-outline-info mx-2 my-1">Clear All</button>
     </div>
     <div className='container my-4' style={{color: props.mode==='dark' ? 'white':'#00003f'}}>
         <h2>Text summary</h2>
-        <p>{text.split(" ").length-1} words , {text.length} characters</p>
-        <p>{0.008*text.split(" ").length} Minutes to Read</p>
-        <h2>Preview</h2>
+        <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words , {text.length} characters</p>
+        <p>{0.008*text.split(" ").filter((element)=>{return element.length !==0}).length} Minutes to Read</p>
+        <h2>Preview</h2>    
         <p>{text.length > 0 ? text : "Enter something above"}</p>
     </div>
 

@@ -14,10 +14,9 @@ function App() {
  
   const showAlert = (msg) => {
  setalert(msg);
- 
 setTimeout(() =>{ 
   setalert(null);}
-  ,2000);
+  ,1500);
 
   }
 
