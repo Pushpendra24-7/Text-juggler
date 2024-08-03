@@ -7,6 +7,7 @@ export default function Textform(props) {
         
         let newText = text.toUpperCase();
         setText(newText);
+        props.showAlert("Converted to Uppercase" , "success")
 
 
     }
@@ -14,6 +15,8 @@ export default function Textform(props) {
         
         let newText = text.toLowerCase();
         setText(newText);
+        props.showAlert("Converted to Lowercase" , "success")
+
 
 
     }
@@ -44,7 +47,7 @@ export default function Textform(props) {
     </div>
     <div className='container my-4' style={{color: props.mode==='dark' ? 'white':'#00003f'}}>
         <h2>Text summary</h2>
-        <p>{text.split(" ").length} words , {text.length} characters</p>
+        <p>{text.split(" ").length-1} words , {text.length} characters</p>
         <p>{0.008*text.split(" ").length} Minutes to Read</p>
         <h2>Preview</h2>
         <p>{text.length > 0 ? text : "Enter something above"}</p>
